@@ -20,25 +20,25 @@ def predict_dimension(text, vectorizer, model, pos, neg):
     return (pos, prob[1]) if prob[1] >= 0.5 else (neg, prob[0])
 
 # UI
-st.title("🔮 Tes Kepribadian MBTI Berbasis AI")
-st.write("Jawab 4 pertanyaan berikut. Sistem akan menganalisis jawabanmu menggunakan AI.")
+st.title("🔮 MBTI Personality Test with AI")
+st.write("Answer this 4 question. System will analyst your answer with AI.")
 
 q1 = st.text_area(
-    "1️⃣ Saat berada di keramaian atau banyak interaksi sosial, bagaimana perasaanmu setelahnya?"
+    "1️⃣ When you're in the crowd or having much social interaction, what are you feeling after that?"
 )
 q2 = st.text_area(
-    "2️⃣ Saat mempelajari sesuatu yang baru, kamu lebih fokus pada detail nyata atau ide dan kemungkinan?"
+    "2️⃣ When you learn something new, where do you foucs? (example: Idea/Fact/Detail/Etc)"
 )
 q3 = st.text_area(
-    "3️⃣ Ketika mengambil keputusan penting, apa yang paling memengaruhimu?"
+    "3️⃣ When you're making a decision, what affects you? (example: Other people feelings/Logic/Etc)"
 )
 q4 = st.text_area(
-    "4️⃣ Dalam menjalani hari-hari, kamu lebih nyaman dengan rencana jelas atau fleksibel?"
+    "4️⃣ Everyday which one more comfort you, a structured plan or a flexible flow?"
 )
 
 if st.button("✨ Lihat Hasil"):
     if not all(len(q) > 10 for q in [q1, q2, q3, q4]):
-        st.warning("⚠️ Tolong isi semua jawaban dengan cukup jelas (minimal 10 karakter).")
+        st.warning("⚠️ Please input the answer more than 10 characters")
     else:
         e_i, ei_score = predict_dimension(q1, ei_vec, ei_model, "I", "E")
         s_n, sn_score = predict_dimension(q2, sn_vec, sn_model, "N", "S")
@@ -47,20 +47,21 @@ if st.button("✨ Lihat Hasil"):
 
         mbti = f"{e_i}{s_n}{t_f}{j_p}"
 
-        st.subheader(f"🎯 Tipe Kepribadian Kamu: **{mbti}**")
+        st.subheader(f"🎯 Your Type: **{mbti}**")
 
-        st.write("### 📊 Kecenderungan:")
+        st.write("### 📊 Tendency:")
         st.progress(ei_score)
-        st.write(f"**{e_i}** lebih dominan")
+        st.write(f"**{e_i}** more dominant")
 
         st.progress(sn_score)
-        st.write(f"**{s_n}** lebih dominan")
+        st.write(f"**{s_n}** more dominant")
 
         st.progress(tf_score)
-        st.write(f"**{t_f}** lebih dominan")
+        st.write(f"**{t_f}** more dominant")
 
         st.progress(jp_score)
-        st.write(f"**{j_p}** lebih dominan")
+        st.write(f"**{j_p}** more dominant")
 
-        st.success("✅ Analisis selesai. Ini adalah estimasi kepribadian berdasarkan jawabanmu.")
+        st.success("✅ Analysis done. This is your result based on your answer.")
+
 
