@@ -24,7 +24,7 @@ st.title("🔮 MBTI Personality Test with AI")
 st.write("Answer this 4 question. System will analyst your answer with AI.")
 
 q1 = st.text_area(
-    "1️⃣ When you're in the crowd or having much social interaction, what are you feeling after that?"
+    "1️⃣ When you're in the crowd or having much social interaction, what do you feel after that?"
 )
 q2 = st.text_area(
     "2️⃣ When you learn something new, where do you foucs? (example: Idea/Fact/Detail/Etc)"
@@ -63,6 +63,7 @@ if st.button("✨ Look result"):
         st.write(f"**{j_p}** more dominant")
 
         st.success("✅ Analysis done. This is your result based on your answer.")
+
 
 
 
