@@ -36,7 +36,7 @@ q4 = st.text_area(
     "4️⃣ Everyday which one more comfort you, a structured plan or a flexible flow?"
 )
 
-if st.button("✨ Lihat Hasil"):
+if st.button("✨ Look result"):
     if not all(len(q) > 10 for q in [q1, q2, q3, q4]):
         st.warning("⚠️ Please input the answer more than 10 characters")
     else:
@@ -63,5 +63,6 @@ if st.button("✨ Lihat Hasil"):
         st.write(f"**{j_p}** more dominant")
 
         st.success("✅ Analysis done. This is your result based on your answer.")
+
 
 
