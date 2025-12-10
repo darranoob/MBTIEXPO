@@ -8,10 +8,10 @@ st.set_page_config(
 )
 
 # Load models
-ei_vec, ei_model = joblib.load("models/ei_model.pkl")
-sn_vec, sn_model = joblib.load("models/sn_model.pkl")
-tf_vec, tf_model = joblib.load("models/tf_model.pkl")
-jp_vec, jp_model = joblib.load("models/jp_model.pkl")
+ei_vec, ei_model = joblib.load("ei_model.pkl")
+sn_vec, sn_model = joblib.load("sn_model.pkl")
+tf_vec, tf_model = joblib.load("tf_model.pkl")
+jp_vec, jp_model = joblib.load("jp_model.pkl")
 
 # Helper function
 def predict_dimension(text, vectorizer, model, pos, neg):
@@ -63,3 +63,4 @@ if st.button("✨ Lihat Hasil"):
         st.write(f"**{j_p}** lebih dominan")
 
         st.success("✅ Analisis selesai. Ini adalah estimasi kepribadian berdasarkan jawabanmu.")
+
